@@ -129,7 +129,6 @@ public class Runelic {
                 
                 for (int line = 1; line <= 4; line++) {
                     
-                    System.out.println(line);
                     final String lineData = signTag.getString("Text" + line);
                     final ITextComponent lineText = applyFont(ITextComponent.Serializer.func_240643_a_(lineData.isEmpty() ? "\"\"" : lineData), font);
                     sign.setText(line - 1, lineText);
