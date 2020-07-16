@@ -38,7 +38,7 @@ sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = co
 minecraft {
 
     mappings channel: 'snapshot', version: "${mcp_version}".toString()
-    
+	
     if (project.hasProperty('mod_at')) {
     
         accessTransformer = file(findProperty('mod_at'))

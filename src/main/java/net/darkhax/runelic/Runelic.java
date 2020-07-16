@@ -33,8 +33,8 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.common.util.Constants.NBT;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 
 @Mod("runelic")
 public class Runelic {
@@ -55,9 +55,9 @@ public class Runelic {
         MinecraftForge.EVENT_BUS.addListener(this::registerCommands);
     }
     
-    private void registerCommands (FMLServerStartingEvent event) {
+    private void registerCommands (RegisterCommandsEvent event) {
         
-        final CommandDispatcher<CommandSource> dispatcher = event.getCommandDispatcher();
+        final CommandDispatcher<CommandSource> dispatcher = event.getDispatcher();
         
         final LiteralArgumentBuilder<CommandSource> root = Commands.literal("runelic");
         
@@ -88,7 +88,7 @@ public class Runelic {
         final TranslationTextComponent txtMessage = new TranslationTextComponent("chat.type.announcement", ctx.getSource().getDisplayName(), inputMessage);
         final Entity sender = ctx.getSource().getEntity();
         final ChatType chatType = sender != null ? ChatType.CHAT : ChatType.SYSTEM;
-        final UUID senderId = sender != null ? sender.getUniqueID() : Util.field_240973_b_;
+        final UUID senderId = sender != null ? sender.getUniqueID() : Util.DUMMY_UUID;
         
         ctx.getSource().getServer().getPlayerList().func_232641_a_(txtMessage, chatType, senderId);
         
@@ -185,7 +185,7 @@ public class Runelic {
         
         if (text instanceof IFormattableTextComponent) {
             
-            ((IFormattableTextComponent) text).func_230530_a_(text.getStyle().func_240719_a_(font));
+            ((IFormattableTextComponent) text).func_230530_a_(text.getStyle().setFontId(font));
         }
         
         text.getSiblings().forEach(sib -> applyFont(sib, font));
