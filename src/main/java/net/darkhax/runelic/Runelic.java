@@ -130,7 +130,7 @@ public class Runelic {
                 for (int line = 1; line <= 4; line++) {
                     
                     final String lineData = signTag.getString("Text" + line);
-                    final ITextComponent lineText = applyFont(ITextComponent.Serializer.func_240643_a_(lineData.isEmpty() ? "\"\"" : lineData), font);
+                    final ITextComponent lineText = applyFont(ITextComponent.Serializer.getComponentFromJson(lineData.isEmpty() ? "\"\"" : lineData), font);
                     sign.setText(line - 1, lineText);
                 }
                 
@@ -161,7 +161,7 @@ public class Runelic {
                     
                     for (int pageNum = 0; pageNum < pageData.size(); pageNum++) {
                         
-                        final IFormattableTextComponent pageText = ITextComponent.Serializer.func_240644_b_(pageData.getString(pageNum));
+                        final IFormattableTextComponent pageText = ITextComponent.Serializer.getComponentFromJsonLenient(pageData.getString(pageNum));
                         applyFont(pageText, font);
                         pageData.set(pageNum, StringNBT.valueOf(ITextComponent.Serializer.toJson(pageText)));
                     }
@@ -185,7 +185,7 @@ public class Runelic {
         
         if (text instanceof IFormattableTextComponent) {
             
-            ((IFormattableTextComponent) text).func_230530_a_(text.getStyle().setFontId(font));
+            ((IFormattableTextComponent) text).setStyle(text.getStyle().setFontId(font));
         }
         
         text.getSiblings().forEach(sib -> applyFont(sib, font));
