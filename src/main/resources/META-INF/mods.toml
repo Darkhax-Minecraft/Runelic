@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[35,)"
+loaderVersion="[35,]"
 issueTrackerURL="https://github.com/Darkhax-Minecraft/runelic/issues"
 license="ARR"
 
@@ -18,13 +18,13 @@ ${mod_description}
 [[dependencies.runelic]]
     modId="forge"
     mandatory=true
-    versionRange="[35,)"
+    versionRange="[35,]"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.runelic]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.3, 1.16.4]"
+    versionRange="[1.16.4]"
     ordering="NONE"
     side="BOTH"
