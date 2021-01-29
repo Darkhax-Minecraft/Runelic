@@ -2,6 +2,8 @@ package net.darkhax.runelic;
 
 import java.util.UUID;
 
+import org.apache.commons.lang3.tuple.Pair;
+
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
@@ -34,7 +36,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.common.util.Constants.NBT;
 import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.fml.ExtensionPoint;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.network.FMLNetworkConstants;
 
 @Mod("runelic")
 public class Runelic {
@@ -52,6 +57,7 @@ public class Runelic {
     
     public Runelic() {
         
+        ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST, () -> Pair.of(() -> FMLNetworkConstants.IGNORESERVERONLY, (a, b) -> true));
         MinecraftForge.EVENT_BUS.addListener(this::registerCommands);
     }
     
