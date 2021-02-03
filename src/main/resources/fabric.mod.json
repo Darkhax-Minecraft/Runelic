@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "runelic",
+  "version": "${version}",
+  "name": "Runelic",
+  "description": "A font featuring rune like glyphs.",
+  "authors": [
+    "Darkhax"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/runelic",
+    "sources": "https://github.com/Darkhax-Minecraft/Runelic",
+    "issues": "https://github.com/Darkhax-Minecraft/Runelic/issues"
+  },
+  "license": "LGPL v2.1",
+  "icon": "assets/runelic/textures/logo.png",
+  "environment": "*",
+  "entrypoints": {
+  },
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "custom": {
+      "modmenu:clientsideOnly": true
+  }
+}
