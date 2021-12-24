@@ -1,0 +1,13 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.darkhax.runelic.mixin",
+    "compatibilityLevel": "JAVA_16",
+    "mixins": [
+      "AccessorSignBlockEntity"
+    ],
+    "injectors": {
+      "defaultRequire": 1
+    }
+  }
+  
