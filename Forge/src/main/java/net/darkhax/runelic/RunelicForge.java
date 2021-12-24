@@ -11,7 +11,7 @@ public class RunelicForge {
 
     @SubscribeEvent
     public static void registerCommands(RegisterCommandsEvent event) {
-        
+
         RunelicCommands.registerCommands(event.getDispatcher(), event.getEnvironment() == Commands.CommandSelection.DEDICATED);
     }
 }
