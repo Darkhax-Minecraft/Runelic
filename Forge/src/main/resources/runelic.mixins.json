@@ -4,8 +4,6 @@
     "package": "net.darkhax.runelic.mixin",
     "compatibilityLevel": "JAVA_17",
     "mixins": [
-    ],
-    "client": [
       "AccessorSignBlockEntity"
     ],
     "injectors": {
