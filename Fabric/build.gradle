@@ -78,7 +78,16 @@ project.publishing {
         mavenJava(MavenPublication) {
         
             artifactId project.archivesBaseName
-            
+
+            // Forcefully remove all required dependencies from Maven data.
+            pom.withXml {
+                asNode().dependencies.dependency.each { dep ->
+
+                    project.logger.lifecycle("Removed artifact ${dep.artifactId.last().value().last()} from maven pom.xml.")
+                    assert dep.parent().remove(dep)
+                }
+            }
+
             // Base mod archive.
             artifact(remapJar) {
             
@@ -89,11 +98,6 @@ project.publishing {
             artifact(sourcesJar) {
             
                 builtBy remapSourcesJar
-            }
-
-            // Forcefully remove all required dependencies from Maven data.
-            pom.withXml {
-                asNode().dependencies.dependency.each { dep -> dep.parent().remove(dep) }
             }
         }
     }
