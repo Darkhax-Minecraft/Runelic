@@ -90,6 +90,11 @@ project.publishing {
             
                 builtBy remapSourcesJar
             }
+
+            // Forcefully remove all required dependencies from Maven data.
+            pom.withXml {
+                asNode().dependencies.dependency.each { dep -> dep.parent().remove(dep) }
+            }
         }
     }
     
