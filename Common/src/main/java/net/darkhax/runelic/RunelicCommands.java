@@ -18,8 +18,6 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.ChatType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -59,19 +57,11 @@ public class RunelicCommands {
 
     private static int commandSay (CommandContext<CommandSourceStack> ctx) {
 
-        final Component inputMessage = applyFont(new TextComponent(StringArgumentType.getString(ctx, "text")), Constants.FONT_RUNELIC);
-        final TranslatableComponent txtMessage = new TranslatableComponent("chat.type.announcement", ctx.getSource().getDisplayName(), inputMessage);
+        final Component inputMessage = applyFont(Component.translatable(StringArgumentType.getString(ctx, "text")), Constants.FONT_RUNELIC);
+        final Component txtMessage = Component.translatable("chat.type.announcement", ctx.getSource().getDisplayName(), inputMessage);
         final Entity sender = ctx.getSource().getEntity();
 
-        if (sender != null) {
-
-            ctx.getSource().getServer().getPlayerList().broadcastMessage(txtMessage, ChatType.CHAT, sender.getUUID());
-        }
-
-        else {
-
-            ctx.getSource().getServer().getPlayerList().broadcastMessage(txtMessage, ChatType.SYSTEM, Util.NIL_UUID);
-        }
+        ctx.getSource().getServer().getPlayerList().broadcastSystemMessage(txtMessage, ChatType.SYSTEM);
 
         return 1;
     }
