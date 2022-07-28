@@ -61,7 +61,7 @@ public class RunelicCommands {
         final Component txtMessage = Component.translatable("chat.type.announcement", ctx.getSource().getDisplayName(), inputMessage);
         final Entity sender = ctx.getSource().getEntity();
 
-        ctx.getSource().getServer().getPlayerList().broadcastSystemMessage(txtMessage, ChatType.SYSTEM);
+        ctx.getSource().getServer().getPlayerList().broadcastSystemMessage(txtMessage, false);
 
         return 1;
     }
