@@ -25,14 +25,12 @@
         "net.darkhax.runelic.RunelicFabric"
       ]
     },
-    "mixins": [
-      "${mod_id}.mixins.json"
-    ],
     "depends": {
       "fabricloader": ">=0.14.8",
       "fabric": "*",
       "minecraft": "1.19.x",
-      "java": ">=17"
+      "java": ">=17",
+      "bookshelf": ">=15.0.0"
     },
     "custom": {
       "modmenu": {

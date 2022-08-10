@@ -11,5 +11,4 @@ public class Constants {
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
 
     public static final ResourceLocation FONT_RUNELIC = new ResourceLocation("runelic", "runelic");
-    public static final ResourceLocation FONT_DEFAULT = new ResourceLocation("minecraft", "default");
 }

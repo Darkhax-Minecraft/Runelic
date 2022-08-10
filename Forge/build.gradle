@@ -68,7 +68,7 @@ dependencies {
 
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     compileOnly project(":Common")
-    
+    implementation fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-${project.ext.minecraft_version}:${project.ext.bookshelf_version}")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
@@ -197,6 +197,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     mainFile.changelogType = 'markdown'
     mainFile.changelog = project.ext.mod_changelog
     mainFile.addJavaVersion('Java 17')
+    mainFile.addRequirement('bookshelf')
     
     // Append Patreon Supporters
     def patreonInfo = project.findProperty('patreon')
