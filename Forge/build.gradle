@@ -10,7 +10,8 @@ buildscript {
 
 plugins {
     id 'net.minecraftforge.gradle' version '5.1.+'
-    id 'net.darkhax.curseforgegradle' version '1.0.11'
+    id 'net.darkhax.curseforgegradle' version '1.1.15'
+    id 'com.modrinth.minotaur' version '2.8.0'
 }
 
 apply from: '../gradle/patreon.gradle'
@@ -217,6 +218,24 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
             project.ext.curse_file_url = "${mod_homepage}/files/${mainFile.curseFileId}"
         }
     }
+}
+
+// Modrinth
+modrinth {
+
+    def patreonInfo = project.findProperty('patreon')
+    def changelog = project.ext.mod_changelog
+
+    if (patreonInfo) {
+        changelog += "\n\nThis project is made possible by [Patreon](${patreonInfo.campaignUrlTracked}) support from players like you. Thank you!\n\n${patreonInfo.pledgeLog}"
+    }
+
+    token.set(project.findProperty('modrinth_auth'))
+    projectId.set(modrinth_project)
+    changelog = changelog
+    versionName.set("${mod_name}-Forge-${minecraft_version}-$version")
+    versionType.set('release')
+    uploadFile.set(tasks.jar)
 }
 
 // Forge's Jar Signer
