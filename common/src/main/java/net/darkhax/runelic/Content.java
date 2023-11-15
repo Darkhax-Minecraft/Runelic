@@ -5,7 +5,6 @@ import net.darkhax.bookshelf.api.item.tab.ITabBuilder;
 import net.darkhax.bookshelf.api.registry.IRegistryObject;
 import net.darkhax.bookshelf.api.registry.RegistryDataProvider;
 import net.darkhax.runelic.item.RunelicPattern;
-import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BannerPattern;
