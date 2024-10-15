@@ -1,42 +1,50 @@
-# [Runelic](https://www.curseforge.com/minecraft/mc-mods/runelic)
-This mod allows the Runelic font to be used in Minecraft.
+<!-- name-start -->
 
-## Runelic Overview
-Runelic is a character set which substitutes commonly used characters with runic symbols and designs. The runic symbols can be consistently translated back into their common counterparts. Uppercase and lowercase characters share the same designs. While some runic designs draw inspiration from real world languages and symbolism any associations between runelic designs and other characters are incidental. 
+# Runelic [![CurseForge Project](https://img.shields.io/curseforge/dt/393149?logo=curseforge&label=CurseForge&style=flat-square&labelColor=2D2D2D&color=555555)](https://www.curseforge.com/minecraft/mc-mods/runelic) [![Modrinth Project](https://img.shields.io/modrinth/dt/P4Xi5huA?logo=modrinth&label=Modrinth&style=flat-square&labelColor=2D2D2D&color=555555)](https://modrinth.com/mod/runelic) [![Maven Project](https://img.shields.io/maven-metadata/v?style=flat-square&logoColor=D31A38&labelColor=2D2D2D&color=555555&label=Latest&logo=gradle&metadataUrl=https%3A%2F%2Fmaven.blamejared.com%2Fnet%2Fdarkhax%2Frunelic%2Frunelic-common-1.21.1%2Fmaven-metadata.xml)](https://maven.blamejared.com/net/darkhax/runelic)
 
-Currently supprted characters include `ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789 !"#$%&'()*+,-./`
+<!-- name-end -->
+<!-- description-start -->
+Adds the Runelic font system to the game. The documentation for this mod can be
+found [here](https://docs.darkhax.net/mods/runelic).
+<!-- description-end -->
 
-![Runelic font displayed on some Minecraft signs.](https://i.imgur.com/iPOzEnZ.png "Runelic Translations")
+<!-- maven-start -->
 
-## Usage Guide
+## Maven Dependency
 
-### Custom Commands
-If this mod is installed on a forge server the following commands will be made available.
+If you are using [Gradle](https://gradle.org) to manage your dependencies, add the following into your `build.gradle`
+file. Make sure to replace the version with the correct one. All versions can be
+viewed [here](https://maven.blamejared.com/net/darkhax/runelic).
 
-- /runelic say <your message> - Posts a chat message using Runelic. This is available to all users.
-- /runelic hand - Renames the held item to use Runelic. Limited to lvl 2 ops.
-- /runelic book (encode|decode) - Rewrites a held book to use runelic. The decode command will turn it back to normal text. Limited to lvl 2 ops.
-- /runelic tile (encode|decode) <pos> - Rewrites a tile entity such as a sign to use Runelic. The decode command will turn it back to normal. Limited to lvl 2 ops.
+```gradle
+repositories {
+    maven { 
+        url 'https://maven.blamejared.com'
+    }
+}
 
-### Code
-If you're developing a mod or have access to the raw item code you can apply runelic to an ITextComponent by modifying the style of the component.
+dependencies {
+    // NeoForge
+    implementation group: 'net.darkhax.runelic', name: 'runelic-neoforge-1.21.1', version: '21.1.0'
 
-**Example:**
-```java
-// MCP names not yet available
-// func_240703_c_ = setStyle
-// func_240719_a_ = setFont
-IFormattableTextComponent text = new StringTextComponent("Hello World");
-text.func_240703_c_(text.getStyle().func_240719_a_(new ResourceLocation("runelic", "runelic")));
+    // Forge
+    implementation group: 'net.darkhax.runelic', name: 'runelic-forge-1.21.1', version: '21.1.0'
+
+    // Fabric & Quilt
+    modImplementation group: 'net.darkhax.runelic', name: 'runelic-fabric-1.21.1', version: '21.1.0'
+
+    // Common / MultiLoader / Vanilla
+    compileOnly group: 'net.darkhax.runelic', name: 'runelic-common-1.21.1', version: '21.1.0'
+}
 ```
 
-### Vanilla Commands & NBT
-Any vanilla command which allows you to define a text component can use Runelic by defining the ID in the text data. For example it can be used with the give command to give an item that uses the font for the item name.
+<!-- maven-end -->
 
-**Example:**
-```
-/give @p stone{display:{Name:"[{\"text\":\"Hello\",\"italic\":false,\"color\":\"gold\",\"font\":\"runelic:runelic\"}]"}} 1
-```
+<!-- sponsor-start -->
 
-## Credits & Permissions
-The Runelic font and character set was created by Tyler Hancock (Darkhax) and is all rights reserved. Projects which have a soft or hard software dependency on Runelic may use Runelic designs in screenshots, custom assets, character designs, and promotional material. 3rd party videos/blogs/articles/showcases may use Runelic designs in their own promotional material and coverage of projects which have a soft or hard software dependency on Runelic.
+## Sponsors
+
+[![](https://assets.blamejared.com/nodecraft/darkhax.jpg)](https://nodecraft.com/r/darkhax)    
+Runelic is sponsored by Nodecraft. Use code **[DARKHAX](https://nodecraft.com/r/darkhax)** for 30% of your first month
+of service!
+<!-- sponsor-end -->
