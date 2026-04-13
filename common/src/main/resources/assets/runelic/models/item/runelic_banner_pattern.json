@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "runelic:item/runelic_banner_pattern"
+  }
+}

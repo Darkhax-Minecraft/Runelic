@@ -5,4 +5,5 @@ import net.neoforged.fml.common.Mod;
 
 @Mod(RunelicMod.MOD_ID)
 public class NeoForgeMod {
+
 }

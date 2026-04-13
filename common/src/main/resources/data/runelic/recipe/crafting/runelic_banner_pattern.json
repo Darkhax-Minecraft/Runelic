@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:paper",
+    "minecraft:amethyst_shard",
+    "minecraft:echo_shard",
+    "minecraft:ghast_tear"
+  ],
+  "result": {
+    "id": "runelic:runelic_pattern"
+  }
+}

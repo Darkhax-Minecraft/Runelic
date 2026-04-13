@@ -1,7 +1,6 @@
 {
   "itemGroup.runelic.creative_tab": "Runelic",
-  "item.runelic.runelic_pattern": "Banner Pattern",
-  "item.runelic.runelic_pattern.desc": "Runelic Runes",
+  "item.runelic.runelic_pattern": "Runelic Banner Pattern",
   "block.runelic.banner.a.white": "White Rune a",
   "block.runelic.banner.a.orange": "Orange Rune a",
   "block.runelic.banner.a.magenta": "Magenta Rune a",

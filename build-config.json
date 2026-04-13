@@ -1,0 +1,41 @@
+{
+  "mod": {
+    "name": "Runelic",
+    "group": "net.darkhax.runelic",
+    "authors": [
+      "Darkhax"
+    ],
+    "id": "runelic",
+    "license": "ARR",
+    "description": "Adds the Runelic font system to the game.",
+    "repo": "https://github.com/Darkhax-Minecraft/runelic",
+    "client": false
+  },
+  "curseforge": {
+    "slug": "runelic",
+    "id": "393149"
+  },
+  "modrinth": {
+    "slug": "runelic",
+    "id": "P4Xi5huA"
+  },
+  "dependencies": [
+    {
+      "name": "Bookshelf",
+      "type": "required",
+      "maven": {
+        "common": "net.darkhax.bookshelf:bookshelf-common-26.1.2:26.1.2.3",
+        "neoforge": "net.darkhax.bookshelf:bookshelf-neoforge-26.1.2:26.1.2.3",
+        "fabric": "net.darkhax.bookshelf:bookshelf-fabric-26.1.2:26.1.2.3"
+      },
+      "curseforge": {
+        "slug": "bookshelf",
+        "id": "228525"
+      },
+      "modrinth": {
+        "slug": "bookshelf-lib",
+        "id": "uy4Cnpcm"
+      }
+    }
+  ]
+}
