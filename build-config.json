@@ -23,6 +23,9 @@
     {
       "name": "Bookshelf",
       "type": "required",
+      "mod_id": {
+        "id": "bookshelf"
+      },
       "maven": {
         "common": "net.darkhax.bookshelf:bookshelf-common-26.1.2:26.1.2.3",
         "neoforge": "net.darkhax.bookshelf:bookshelf-neoforge-26.1.2:26.1.2.3",
